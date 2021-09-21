@@ -117,7 +117,7 @@ M$ClassesDescription = {
     PropagatorArrow -> None,
     FullName        -> "Photon"
   },
-  V[2] == { 
+  V[21] == { 
     ClassName       -> Z, 
     SelfConjugate   -> True,
     Mass            -> {MZ, 91.1876},
@@ -129,6 +129,18 @@ M$ClassesDescription = {
     PropagatorArrow -> None,
     FullName        -> "Z"
   },
+  (* mass and width of MZp need to be modified, also PDG number should be modified*)
+  V[22] == {
+        ClassName -> Zp,
+	SelfConjugate -> True, 
+	Indices -> {},
+	Mass -> {MZp, 500},
+        Width -> {WZp, 0.0008252},
+	PropagatorLabel -> "Zp",
+	PropagatorType -> Sine,
+	PropagatorArrow -> None,
+        PDG -> 1023,
+        FullName -> "Zp" },
   V[3] == {
     ClassName        -> W,
     SelfConjugate    -> False,
