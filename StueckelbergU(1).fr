@@ -243,6 +243,13 @@ M$ClassesDescription = {
     FlavorIndex   -> SU2W,
     Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2]), Wi[mu_,3] -> cw Z[mu] + sw A[mu]}
   },
+  (*Definitions needs to be modified*)
+  V[13] == { 
+    ClassName     -> C, 
+    Unphysical    -> True, 
+    SelfConjugate -> True, 
+    Definitions   -> { C[mu_] -> -sw Z[mu]+cw A[mu]}
+   },
 
 (* Ghosts: related to unphysical gauge bosons *)
   U[11] == {
@@ -261,6 +268,14 @@ M$ClassesDescription = {
     FlavorIndex   -> SU2W,
     Definitions   -> { ghWi[1] -> (ghWp+ghWm)/Sqrt[2], ghWi[2] -> (ghWm-ghWp)/(I*Sqrt[2]), ghWi[3] -> cw ghZ+sw ghA}
   } ,
+  (*Definitions needs to be modified*)
+  U[13] == {
+    ClassName     -> ghC, 
+    Unphysical    -> True,
+    SelfConjugate -> False,
+    Ghost         -> C, 
+    Definitions   -> { ghC -> -sw ghZ + cw ghA}
+  },
 
 (* Fermions: physical fields *)
   F[1] == {
@@ -331,6 +346,24 @@ M$ClassesDescription = {
     AntiParticleName -> {"d~", "s~", "b~"},
     FullName         -> {"d-quark", "s-quark", "b-quark"}
   },
+  (*further modifications needed*)
+  F[5] == {
+    ClassName        -> DM,
+    ClassMembers     -> {DM},
+    Indices          -> {Index[Generation]},
+    FlavorIndex      -> Generation,
+    SelfConjugate    -> False,
+    Mass             -> {MDM,{MDM,}},
+    Width            -> 0,
+    QuantumNumbers   -> {LeptonNumber -> 1},
+    PropagatorLabel  -> {"DM"} ,
+    PropagatorType   -> Straight,
+    PropagatorArrow  -> Forward,
+    PDG              -> {},
+    ParticleName     -> {"DM"},
+    AntiParticleName -> {"DM~"},
+    FullName         -> {"Dark matter"}
+  },
 
 (* Fermions: unphysical fields *)
   F[11] == { 
@@ -380,7 +413,7 @@ M$ClassesDescription = {
     QuantumNumbers -> {Y -> -1/3},
     Definitions    -> { dR[sp1_,ff_,cc_] :> Module[{sp2}, ProjP[sp1,sp2] dq[sp2,ff,cc]] }
   },
-
+   (*Ghost for dark matter needed*)
 (* Higgs: physical scalars  *)
   S[1] == {
     ClassName       -> H,
@@ -561,7 +594,11 @@ M$Parameters = {
     TeX           -> Subscript[\[Theta], c],
     Description   -> "Cabibbo angle"
   },
-
+  (* New hidden external parameters *)
+  del == {},
+  M1  == {},
+  M2  == {},
+  gX  == {},
   (* Internal Parameters *)
   aEW == {
     ParameterType    -> Internal,
@@ -670,6 +707,24 @@ M$Parameters = {
     TeX              -> Superscript[y, d],
     Description      -> "Down-type Yukawa couplings"
   },
+  (* New scales *)
+
+  MZ0 == {
+       ParameterType -> Internal,
+       Value -> MZ,
+       Description -> "Z mass before mixing"},
+
+  MX =={
+       ParameterType -> Internal,
+       Value -> MZp,
+       Description -> "X mass before mixing"},
+
+  \[CapitalDelta]Z =={
+       ParameterType -> Internal,
+       Value -> MX^2/MZ0^2,
+       ParameterName -> DZ,
+       Description -> "Ratio of scales"},
+
 (* N. B. : only Cabibbo mixing! *)
   CKM == { 
     ParameterType -> Internal,
