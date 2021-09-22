@@ -133,14 +133,14 @@ M$ClassesDescription = {
   V[22] == {
         ClassName -> Zp,
 	SelfConjugate -> True, 
-	Indices -> {},
-	Mass -> {MZp, 500},
+	Mass -> {MZp, M1},
         Width -> {WZp, 0.0008252},
 	PropagatorLabel -> "Zp",
 	PropagatorType -> Sine,
 	PropagatorArrow -> None,
         PDG -> 1023,
-        FullName -> "Zp" },
+        FullName -> "Zp" 
+  },
   V[3] == {
     ClassName        -> W,
     SelfConjugate    -> False,
@@ -181,7 +181,7 @@ M$ClassesDescription = {
     PropagatorType  -> GhostDash,
     PropagatorArrow -> Forward
   },
-  U[2] == {
+  U[21] == {
     ClassName       -> ghZ,
     SelfConjugate   -> False,
     Ghost           -> Z,
@@ -189,6 +189,18 @@ M$ClassesDescription = {
     Mass            -> {MZ,91.1876},  
     Width	    -> {WZ, 2.4952},
     PropagatorLabel -> "uZ",
+    PropagatorType  -> GhostDash,
+    PropagatorArrow -> Forward
+  },
+  (*Ghost particle for Zp, needs to be modified*)
+  U[22] == {
+    ClassName       -> ghZp,
+    SelfConjugate   -> False,
+    Ghost           -> Zp,
+    QuantumNumbers  -> {GhostNumber -> 1},
+    Mass            -> {MZp,91.1876},  
+    Width	    -> {WZp, 2.4952},
+    PropagatorLabel -> "uZp",
     PropagatorType  -> GhostDash,
     PropagatorArrow -> Forward
   },
@@ -595,10 +607,41 @@ M$Parameters = {
     Description   -> "Cabibbo angle"
   },
   (* New hidden external parameters *)
-  del == {},
-  M1  == {},
-  M2  == {},
-  gX  == {},
+  \[Delta] == {
+    ParameterType -> External,
+    BlockName -> HIDDEN,
+    ParameterName -> delta,
+    Value -> 0.01,
+    Description -> "U(1)X - U(1)Y mixing parameter"
+  },
+  M1  == {
+    ParameterType -> External,
+    BlockName -> HIDDEN,
+    ParameterName -> M1,
+    Value -> 0.01,
+    Description -> "parameter"
+  },
+  M2  == {
+    ParameterType -> External,
+    BlockName -> HIDDEN,
+    ParameterName -> M2,
+    Value -> 0,
+    Description -> "parameter"
+  },
+  gX  == {
+    ParameterType -> External,
+    BlockName -> HIDDEN,
+    ParameterName -> gX,
+    Value -> 0.01,
+    Description -> "dark sector coupling parameter"
+  },
+  MD  == {
+    ParameterType -> External,
+    BlockName -> HIDDEN,
+    ParameterName -> MD,
+    Value -> 0,
+    Description -> "Dark matter mass"
+  },
   (* Internal Parameters *)
   aEW == {
     ParameterType    -> Internal,
