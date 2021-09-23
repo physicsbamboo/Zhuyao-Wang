@@ -138,7 +138,7 @@ M$ClassesDescription = {
 	PropagatorLabel -> "Zp",
 	PropagatorType -> Sine,
 	PropagatorArrow -> None,
-        PDG -> 1023,
+        PDG -> 55,
         FullName -> "Zp" 
   },
   V[3] == {
@@ -198,7 +198,7 @@ M$ClassesDescription = {
     SelfConjugate   -> False,
     Ghost           -> Zp,
     QuantumNumbers  -> {GhostNumber -> 1},
-    Mass            -> {MZp,91.1876},  
+    Mass            -> {MZp,M1},  
     Width	    -> {WZp, 2.4952},
     PropagatorLabel -> "uZp",
     PropagatorType  -> GhostDash,
