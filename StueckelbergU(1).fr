@@ -255,12 +255,12 @@ M$ClassesDescription = {
     FlavorIndex   -> SU2W,
     Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2]), Wi[mu_,3] -> cw Z[mu] + sw A[mu]}
   },
-  (*Definitions needs to be modified*)
+  (*Definitions needs to be checked*)
   V[13] == { 
     ClassName     -> C, 
     Unphysical    -> True, 
     SelfConjugate -> True, 
-    Definitions   -> { C[mu_] -> -sw Z[mu]+cw A[mu]}
+    Definitions   -> { C[mu_] -> Zp[mu]}
    },
 
 (* Ghosts: related to unphysical gauge bosons *)
@@ -286,7 +286,7 @@ M$ClassesDescription = {
     Unphysical    -> True,
     SelfConjugate -> False,
     Ghost         -> C, 
-    Definitions   -> { ghC -> -sw ghZ + cw ghA}
+    Definitions   -> { ghC -> ghZp}
   },
 
 (* Fermions: physical fields *)
@@ -360,21 +360,14 @@ M$ClassesDescription = {
   },
   (*further modifications needed*)
   F[5] == {
-    ClassName        -> DM,
-    ClassMembers     -> {DM},
-    Indices          -> {Index[Generation]},
-    FlavorIndex      -> Generation,
     SelfConjugate    -> False,
     Mass             -> {MDM,{MDM,}},
     Width            -> 0,
-    QuantumNumbers   -> {LeptonNumber -> 1},
     PropagatorLabel  -> {"DM"} ,
     PropagatorType   -> Straight,
     PropagatorArrow  -> Forward,
     PDG              -> {},
-    ParticleName     -> {"DM"},
-    AntiParticleName -> {"DM~"},
-    FullName         -> {"Dark matter"}
+    FullName         -> {"Dirac Dark matter"}
   },
 
 (* Fermions: unphysical fields *)
@@ -425,7 +418,7 @@ M$ClassesDescription = {
     QuantumNumbers -> {Y -> -1/3},
     Definitions    -> { dR[sp1_,ff_,cc_] :> Module[{sp2}, ProjP[sp1,sp2] dq[sp2,ff,cc]] }
   },
-   (*Ghost for dark matter needed*)
+   (*Ghost for dark matter needed?*)
 (* Higgs: physical scalars  *)
   S[1] == {
     ClassName       -> H,
@@ -635,10 +628,10 @@ M$Parameters = {
     Value -> 0.01,
     Description -> "dark sector coupling parameter"
   },
-  MD  == {
+  MDM  == {
     ParameterType -> External,
     BlockName -> HIDDEN,
-    ParameterName -> MD,
+    ParameterName -> MDM,
     Value -> 0,
     Description -> "Dark matter mass"
   },
@@ -750,23 +743,6 @@ M$Parameters = {
     TeX              -> Superscript[y, d],
     Description      -> "Down-type Yukawa couplings"
   },
-  (* New scales *)
-
-  MZ0 == {
-       ParameterType -> Internal,
-       Value -> MZ,
-       Description -> "Z mass before mixing"},
-
-  MX =={
-       ParameterType -> Internal,
-       Value -> MZp,
-       Description -> "X mass before mixing"},
-
-  \[CapitalDelta]Z =={
-       ParameterType -> Internal,
-       Value -> MX^2/MZ0^2,
-       ParameterName -> DZ,
-       Description -> "Ratio of scales"},
 
 (* N. B. : only Cabibbo mixing! *)
   CKM == { 
@@ -786,6 +762,11 @@ M$Parameters = {
 
 LGauge := Block[{mu,nu,ii,aa}, 
   ExpandIndices[-1/4 FS[B,mu,nu] FS[B,mu,nu] - 1/4 FS[Wi,mu,nu,ii] FS[Wi,mu,nu,ii] - 1/4 FS[G,mu,nu,aa] FS[G,mu,nu,aa], FlavorExpand->SU2W]];
+  
+(*Stueckelberg Lagrangian*)
+LSt := Block[{mu,nu}, 
+  ExpandIndices[-1/4 FS[C,mu,nu] FS[C,mu,nu] - 1/2 FS[C,mu,nu] FS[B,mu,nu] -gX DMbar.Ga[mu].DM.C[mu] + MDM DMbar DM] - 1/2*(M1 C[mu] + M2 B[mu] + del[,mu] )];
+
 
 LFermions := Block[{mu}, 
   ExpandIndices[I*(
@@ -829,4 +810,4 @@ LGhost := Block[{LGh1,LGhw,LGhs,LGhphi,mu, generators,gh,ghbar,Vectorize,phi1,ph
 
 ExpandIndices[ LGhs + If[FeynmanGauge, LGh1 + LGhw + LGhphi,0], FlavorExpand->SU2W]];
 
-LSM:= LGauge + LFermions + LHiggs + LYukawa + LGhost;
+LSM:= LGauge + LFermions + LHiggs + LYukawa + LGhost + LSt;
