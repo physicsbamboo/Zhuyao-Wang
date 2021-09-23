@@ -765,7 +765,7 @@ LGauge := Block[{mu,nu,ii,aa},
   
 (*Stueckelberg Lagrangian*)
 LSt := Block[{mu,nu}, 
-  ExpandIndices[-1/4 FS[C,mu,nu] FS[C,mu,nu] - 1/2 FS[C,mu,nu] FS[B,mu,nu] -gX DMbar.Ga[mu].DM.C[mu] + MDM DMbar DM - 1/2*(M1 C[mu] + M2 B[mu] + del[,mu] )]];
+  ExpandIndices[-1/4 FS[C,mu,nu] FS[C,mu,nu] - 1/2 FS[C,mu,nu] FS[B,mu,nu] -gX DMbar.Ga[mu].DM.C[mu] + MDM DMbar DM - \[Delta]/2*(M1 C[mu] + M2 B[mu] + del[,mu] )]];
 
 
 LFermions := Block[{mu}, 
