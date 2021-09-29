@@ -363,11 +363,23 @@ M$ClassesDescription = {
     SelfConjugate    -> False,
     Mass             -> {MDM,{MDM,}},
     Width            -> 0,
+    QuantumNumbers   -> {QX -> 1},
     PropagatorLabel  -> {"DM"} ,
     PropagatorType   -> Straight,
     PropagatorArrow  -> Forward,
-    PDG              -> {},
+    PDG              -> 52,
     FullName         -> {"Dirac Dark matter"}
+  },
+  F[6] == {
+    SelfConjugate    -> False,
+    Mass             -> {aMDM,{MDM,}},
+    Width            -> 0,
+    QuantumNumbers   -> {QX -> -1},
+    PropagatorLabel  -> {"aDM"} ,
+    PropagatorType   -> Straight,
+    PropagatorArrow  -> Forward,
+    PDG              -> 52,
+    FullName         -> {"anti Dirac Dark matter"}
   },
 
 (* Fermions: unphysical fields *)
