@@ -361,7 +361,7 @@ M$ClassesDescription = {
   (*further modifications needed*)
   F[5] == {
     SelfConjugate    -> False,
-    Mass             -> {MDM,{MDM,}},
+    Mass             -> {MDM,Internal},
     Width            -> 0,
     QuantumNumbers   -> {QX -> 1},
     PropagatorLabel  -> {"DM"} ,
@@ -372,7 +372,7 @@ M$ClassesDescription = {
   },
   F[6] == {
     SelfConjugate    -> False,
-    Mass             -> {aMDM,{MDM,}},
+    Mass             -> {MDM,Internal},
     Width            -> 0,
     QuantumNumbers   -> {QX -> -1},
     PropagatorLabel  -> {"aDM"} ,
@@ -666,6 +666,25 @@ M$Parameters = {
     Value            -> (eps-\[Delta])/Sqrt[1-\[Delta]^2],
     TeX              -> OverBar[\[Epsilon]],
     Description      -> "mass mixing parameter after transformation 0702123 Equation(22)"
+  },
+  M0 == {
+    ParameterType    -> Internal,
+    Value            -> 1/2 vev Sqrt[gw^2+g1^2],
+    TeX              -> anphi,
+    Description      -> "M0=MZ(eps=delta)"
+  },
+  (*angle theta is not defined since it's already in SM, use sw,cw directly*)
+  anphi == {
+    ParameterType    -> Internal,
+    Value            -> ArcTan[epsb],
+    TeX              -> anphi,
+    Description      -> "angle phi"
+  },
+  anpsi == {
+    ParameterType    -> Internal,
+    Value            -> 1/2*ArcTan[(2 sw M0 epsb)/(M1^2-M0^2+(M1^2+M0^2-MW^2) epsb^2)],
+    TeX              -> \[Psi],
+    Description      -> "angle psi"
   },
   aEW == {
     ParameterType    -> Internal,
