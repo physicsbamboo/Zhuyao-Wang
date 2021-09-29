@@ -654,6 +654,19 @@ M$Parameters = {
     Description -> "Dark matter mass"
   },
   (* Internal Parameters *)
+  (* Stueckelberg parameters*)
+  eps == {
+    ParameterType    -> Internal,
+    Value            -> M2/M1,
+    TeX              -> \[Epsilon],
+    Description      -> "mass mixing parameter"
+  },
+  epsb == {
+    ParameterType    -> Internal,
+    Value            -> (eps-\[Delta])/Sqrt[1-\[Delta]^2],
+    TeX              -> OverBar[\[Epsilon]],
+    Description      -> "mass mixing parameter after transformation 0702123 Equation(22)"
+  },
   aEW == {
     ParameterType    -> Internal,
     Value            -> 1/aEWM1,
