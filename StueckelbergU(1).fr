@@ -254,8 +254,7 @@ M$ClassesDescription = {
     SelfConjugate -> True, 
     Indices       -> {Index[SU2W]},
     FlavorIndex   -> SU2W,
-    Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2])}
-    (* Removed the definition for , Wi[mu_,3] -> cw Z[mu] + sw A[mu], not sure it will work... *)
+    (* Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2])} *)
   },
  
   V[13] == { 
@@ -519,14 +518,20 @@ GaugeXi[ U[4]  ] = GaugeXi[G];
 (* ************************** *)
 (* *****     Mixing     ***** *)
 (* ************************** *)
-(*  Below referred to Page 36 in 1310.1921  *)
+(*  Below copied from P35 in 1310.1921 *)
 M$MixingsDescription = {
+  Mix["l1"] == {
+    MassBasis  -> {W, Wbar},
+    GaugeBasis -> {Wi[1], Wi[2]},
+    Value      -> {{1/Sqrt[2], -I/Sqrt[2]}, {1/Sqrt[2],I/Sqrt[2]}}
+},
+(*  Below referred to Page 36 in 1310.1921  *)
   Mix["KOR"] == {
-    GaugeBasis -> {C, B, Wi[3]},
-    MassBasis -> {Zp, Z, A },
+    GaugeBasis   -> {C, B, Wi[3]},
+    MassBasis    -> {Zp, Z, A },
     MixingMatrix -> K.O.R,
-    BlockName -> KORMIX,
-    Inverse -> True}
+    BlockName    -> KORMIX,
+    Inverse      -> True}
 };
 (* ************************** *)
 (* *****   Parameters   ***** *)
