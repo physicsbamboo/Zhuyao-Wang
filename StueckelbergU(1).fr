@@ -241,11 +241,12 @@ M$ClassesDescription = {
   },
 
 (* Gauge bosons: unphysical vector fields *)
+(* Removed the definition for B, and C, referred from Page 75 in 1310.1921*)
   V[11] == { 
     ClassName     -> B, 
     Unphysical    -> True, 
     SelfConjugate -> True, 
-    Definitions   -> { B[mu_] -> -sw Z[mu]+cw A[mu]} 
+    (*Definitions   -> { B[mu_] -> -sw Z[mu]+cw A[mu]} *)
   },
   V[12] == { 
     ClassName     -> Wi,
@@ -260,10 +261,11 @@ M$ClassesDescription = {
     ClassName     -> C, 
     Unphysical    -> True, 
     SelfConjugate -> True, 
-    Definitions   -> { C[mu_] -> Zp[mu]}
+    (*Definitions   -> { C[mu_] -> Zp[mu]}*)
    },
 
 (* Ghosts: related to unphysical gauge bosons *)
+(* Change the definition in ghost section?  *)
   U[11] == {
     ClassName     -> ghB, 
     Unphysical    -> True,
