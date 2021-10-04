@@ -129,7 +129,7 @@ M$ClassesDescription = {
     PropagatorArrow -> None,
     FullName        -> "Z"
   },
-  (* mass and width of MZp need to be modified, also PDG number should be modified*)
+  (* Width will be overwritten, so can be set to an arbitrary value*)
   V[22] == {
         ClassName -> Zp,
 	SelfConjugate -> True, 
@@ -256,7 +256,7 @@ M$ClassesDescription = {
     FlavorIndex   -> SU2W,
     Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2]), Wi[mu_,3] -> cw Z[mu] + sw A[mu]}
   },
-  (*Definitions needs to be checked*)
+ 
   V[13] == { 
     ClassName     -> C, 
     Unphysical    -> True, 
