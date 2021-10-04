@@ -515,12 +515,13 @@ GaugeXi[ U[4]  ] = GaugeXi[G];
 (* ************************** *)
 (* *****     Mixing     ***** *)
 (* ************************** *)
+(*  Below referred to Page 36 in 1310.1921  *)
 M$MixingsDescription = {
   Mix["KOR"] == {
-    GaugeBasis -> {C, B, },
+    GaugeBasis -> {C, B, Wi[3]},
     MassBasis -> {Zp, Z, A },
     MixingMatrix -> K.O.R,
-    BlockName -> UMIX,
+    BlockName -> KORMIX,
     Inverse -> True}
 };
 (* ************************** *)
