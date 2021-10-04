@@ -254,7 +254,8 @@ M$ClassesDescription = {
     SelfConjugate -> True, 
     Indices       -> {Index[SU2W]},
     FlavorIndex   -> SU2W,
-    Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2]), Wi[mu_,3] -> cw Z[mu] + sw A[mu]}
+    Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2])}
+    (* Removed the definition for , Wi[mu_,3] -> cw Z[mu] + sw A[mu], not sure it will work... *)
   },
  
   V[13] == { 
@@ -280,7 +281,8 @@ M$ClassesDescription = {
     Ghost         -> Wi,
     Indices       -> {Index[SU2W]},
     FlavorIndex   -> SU2W,
-    Definitions   -> { ghWi[1] -> (ghWp+ghWm)/Sqrt[2], ghWi[2] -> (ghWm-ghWp)/(I*Sqrt[2]), ghWi[3] -> cw ghZ+sw ghA}
+    Definitions   -> { ghWi[1] -> (ghWp+ghWm)/Sqrt[2], ghWi[2] -> (ghWm-ghWp)/(I*Sqrt[2])}
+    (* Removed the definition for , ghWi[3] -> cw ghZ+sw ghA, not sure it will work... *)
   } ,
   
   U[13] == {
