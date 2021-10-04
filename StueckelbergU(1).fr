@@ -854,9 +854,10 @@ M$Parameters = {
 LGauge := Block[{mu,nu,ii,aa}, 
   ExpandIndices[-1/4 FS[B,mu,nu] FS[B,mu,nu] - 1/4 FS[Wi,mu,nu,ii] FS[Wi,mu,nu,ii] - 1/4 FS[G,mu,nu,aa] FS[G,mu,nu,aa], FlavorExpand->SU2W]];
   
-(*Stueckelberg Lagrangian*)
+(*Stueckelberg Lagrangian arxiv:0702123v2*)
+(*axion field is set as 0 because we're at Unitary gauge*)
 LSt := Block[{mu,nu}, 
-  ExpandIndices[-1/4 FS[C,mu,nu] FS[C,mu,nu] - \[Delta]/2 FS[C,mu,nu] FS[B,mu,nu] -gX DMbar.Ga[mu].DM.C[mu] + MDM DMbar DM - 1/2*(M1 C[mu] + M2 B[mu] )^2]];
+  ExpandIndices[-1/4 FS[C,mu,nu] FS[C,mu,nu] - \[Delta]/2 FS[C,mu,nu] FS[B,mu,nu] -gX aDM.Ga[mu].DM.C[mu] + MDM aDM DM - 1/2*(M1 C[mu] + M2 B[mu] )^2]];
 
 
 LFermions := Block[{mu}, 
