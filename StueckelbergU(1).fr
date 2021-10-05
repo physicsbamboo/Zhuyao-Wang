@@ -265,7 +265,8 @@ M$ClassesDescription = {
    },
 
 (* Ghosts: related to unphysical gauge bosons *)
-(* Change the definition in ghost section?  *)
+(* Change the definition in ghost section?  Probably don't have to. According to 1310.1921, "add a Boolean variable $FeynmanGauge into the model, which, if set to False,
+removes all the terms from the Lagrangian which depend on ghost fields and Goldstone bosons." So maybe no worries about the ghost part at all.*)
   U[11] == {
     ClassName     -> ghB, 
     Unphysical    -> True,
