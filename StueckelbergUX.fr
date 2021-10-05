@@ -246,7 +246,7 @@ M$ClassesDescription = {
   V[11] == { 
     ClassName     -> B, 
     Unphysical    -> True, 
-    SelfConjugate -> True, 
+    SelfConjugate -> True
     (*Definitions   -> { B[mu_] -> -sw Z[mu]+cw A[mu]} *)
   },
   V[12] == { 
@@ -254,14 +254,14 @@ M$ClassesDescription = {
     Unphysical    -> True,
     SelfConjugate -> True, 
     Indices       -> {Index[SU2W]},
-    FlavorIndex   -> SU2W,
+    FlavorIndex   -> SU2W
     (* Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2])} *)
   },
  
   V[13] == { 
     ClassName     -> C, 
     Unphysical    -> True, 
-    SelfConjugate -> True, 
+    SelfConjugate -> True
     (*Definitions   -> { C[mu_] -> Zp[mu]}*)
    },
 
@@ -282,7 +282,7 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
     Ghost         -> Wi,
     Indices       -> {Index[SU2W]},
     FlavorIndex   -> SU2W,
-    Definitions   -> { ghWi[1] -> (ghWp+ghWm)/Sqrt[2], ghWi[2] -> (ghWm-ghWp)/(I*Sqrt[2])}
+    Definitions   -> { ghWi[1] -> (ghWp+ghWm)/Sqrt[2], ghWi[2] -> (ghWm-ghWp)/(I*Sqrt[2]), ghWi[3] -> cw ghZ+sw ghA}
     (* Removed the definition for , ghWi[3] -> cw ghZ+sw ghA, not sure it will work... *)
   } ,
   
