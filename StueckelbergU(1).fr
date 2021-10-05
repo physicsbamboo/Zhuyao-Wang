@@ -48,10 +48,11 @@ M$GaugeGroups = {
     Charge           -> Y
   },
   U1X == {
-        Abelian -> True,
-        GaugeBoson -> C,
-        Charge -> QX,
-        CouplingConstant -> gX},
+    Abelian -> True,
+    GaugeBoson -> C,
+    Charge -> QX,
+    CouplingConstant -> gX
+  },
   SU2L == { 
     Abelian           -> False, 
     CouplingConstant  -> gw, 
