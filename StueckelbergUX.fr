@@ -489,7 +489,7 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
     SelfConjugate  -> False,
     QuantumNumbers -> {Y -> 1/2},
     Definitions    -> { Phi[1] -> -I GP, Phi[2] -> (vev + H + I G0)/Sqrt[2]  }
-  },
+  }
  (* Axion field sigma*)
  (*  S[44] == { 
     ClassName      -> Sigma, 
