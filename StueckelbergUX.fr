@@ -134,7 +134,7 @@ M$ClassesDescription = {
   V[22] == {
         ClassName -> Zp,
 	SelfConjugate -> True, 
-	Mass -> {MZp, M1},
+	Mass -> {MZp, Internal},
         Width -> {WZp, 0.0008252},
 	PropagatorLabel -> "Zp",
 	PropagatorType -> Sine,
@@ -366,7 +366,7 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
   (*further modifications needed*)
   F[5] == {
     SelfConjugate    -> False,
-    Mass             -> {MDM,Internal},
+    Mass             -> {mDM, MDM},
     Width            -> 0,
     QuantumNumbers   -> {QX -> 1},
     PropagatorLabel  -> {"DM"} ,
@@ -377,7 +377,7 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
   },
   F[6] == {
     SelfConjugate    -> False,
-    Mass             -> {MDM,Internal},
+    Mass             -> {maDM, MDM},
     Width            -> 0,
     QuantumNumbers   -> {QX -> -1},
     PropagatorLabel  -> {"aDM"} ,
