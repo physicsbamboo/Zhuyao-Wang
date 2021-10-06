@@ -49,9 +49,9 @@ M$GaugeGroups = {
   },
   (* C is reserved, can not be used, replace C with cC*)
   U1X == {
-    Abelian -> True,
-    GaugeBoson -> cC,
-    Charge -> QX,
+    Abelian  	     -> True,
+    GaugeBoson       -> cC,
+    Charge           -> QX,
     CouplingConstant -> gX
   },
   SU2L == { 
@@ -135,7 +135,7 @@ M$ClassesDescription = {
   V[22] == {
     ClassName       -> Zp,
     SelfConjugate   -> True, 
-    Mass            -> {MZp, M1},
+    Mass            -> {MZp, Internal},
     Width           -> {WZp, 0.0008252},
     PropagatorLabel -> "Zp",
     PropagatorType  -> Sine,
@@ -194,7 +194,7 @@ M$ClassesDescription = {
     PropagatorType  -> GhostDash,
     PropagatorArrow -> Forward
   },
-  (*Ghost particle for Zp, needs to be modified*)
+  (*Ghost particle for Zp, needs to be modified
   U[22] == {
     ClassName       -> ghZp,
     SelfConjugate   -> False,
@@ -205,7 +205,7 @@ M$ClassesDescription = {
     PropagatorLabel -> "uZp",
     PropagatorType  -> GhostDash,
     PropagatorArrow -> Forward
-  },
+  },*)
   U[31] == { 
     ClassName       -> ghWp,
     SelfConjugate   -> False, 
