@@ -132,15 +132,15 @@ M$ClassesDescription = {
   },
   (* Width will be overwritten, so can be set to an arbitrary value*)
   V[22] == {
-        ClassName -> Zp,
-	SelfConjugate -> True, 
-	Mass -> {MZp, Internal},
-        Width -> {WZp, 0.0008252},
-	PropagatorLabel -> "Zp",
-	PropagatorType -> Sine,
-	PropagatorArrow -> None,
-        PDG -> 55,
-        FullName -> "Zp" 
+    ClassName       -> Zp,
+    SelfConjugate   -> True, 
+    Mass            -> {MZp, M1},
+    Width           -> {WZp, 0.0008252},
+    PropagatorLabel -> "Zp",
+    PropagatorType  -> Sine,
+    PropagatorArrow -> None,
+    PDG             -> 55,
+    FullName        -> "Zp" 
   },
   V[3] == {
     ClassName        -> W,
@@ -282,17 +282,9 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
     Ghost         -> Wi,
     Indices       -> {Index[SU2W]},
     FlavorIndex   -> SU2W,
-    Definitions   -> { ghWi[1] -> (ghWp+ghWm)/Sqrt[2], ghWi[2] -> (ghWm-ghWp)/(I*Sqrt[2]), ghWi[3] -> cw ghZ+sw ghA}
-    (* Removed the definition for , ghWi[3] -> cw ghZ+sw ghA, not sure it will work... *)
+    Definitions   -> { ghWi[1] -> (ghWp+ghWm)/Sqrt[2], ghWi[2] -> (ghWm-ghWp)/(I*Sqrt[2]), ghWi[3] -> cw ghZ+sw ghA }
   } ,
   
-  U[13] == {
-    ClassName     -> ghC, 
-    Unphysical    -> True,
-    SelfConjugate -> False,
-    Ghost         -> C, 
-    Definitions   -> { ghC -> ghZp}
-  },
 
 (* Fermions: physical fields *)
   F[1] == {
@@ -365,6 +357,7 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
   },
   (*further modifications needed*)
   F[5] == {
+    ClassName        -> aDM
     SelfConjugate    -> False,
     Mass             -> {mDM, MDM},
     Width            -> 0,
@@ -376,8 +369,9 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
     FullName         -> {"Dirac Dark matter"}
   },
   F[6] == {
+    ClassName        -> aDM
     SelfConjugate    -> False,
-    Mass             -> {maDM, MDM},
+    Mass             -> {MDM, MDM},
     Width            -> 0,
     QuantumNumbers   -> {QX -> -1},
     PropagatorLabel  -> {"aDM"} ,
@@ -531,7 +525,7 @@ M$MixingsDescription = {
   Mix["KOR"] == {
     GaugeBasis   -> {C, B, Wi[3]},
     MassBasis    -> {Zp, Z, A },
-    MixingMatrix -> K.O.R,
+    MixingMatrix -> matK.matO.matR,
     BlockName    -> KOR,
     Inverse      -> True}
 };
@@ -708,7 +702,7 @@ M$Parameters = {
     Description      -> "angle psi"
   },
   (* The indices might be wrong*)
-  K   =={
+  matK   =={
     ParameterType    -> Internal,
     Indices          -> {Index[Generation],Index[Generation]},
     Value            -> {K[1,1] -> 1/Sqrt[1-\[Delta]^2], K[1,2] -> 0, K[1,3] -> 0,
@@ -716,7 +710,7 @@ M$Parameters = {
 			 K[3,1] -> 0, K[3,2] -> 0, K[3,3] -> 1},
     Description      -> "K matrix"
     },
-  O   =={
+  matO   =={
     ParameterType    -> Internal,
     Indices          -> {Index[Generation],Index[Generation]},
     Value            -> {O[1,1] -> Sqrt[1-\[Delta]], O[1,2] -> 1, O[1,3] -> 0,
@@ -724,7 +718,7 @@ M$Parameters = {
 			 O[3,1] -> 0, O[3,2] -> 0, O[3,3] -> 1},
     Description      -> "O matrix"
     },
-  R   =={
+  matR   =={
     ParameterType    -> Internal,
     Indices          -> {Index[Generation],Index[Generation]},
     Value            -> {R[1,1] -> Cos[anpsi]Cos[anphi]-sw Sin[anphi]Sin[anpsi],
