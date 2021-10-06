@@ -358,7 +358,7 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
   },
   (*further modifications needed*)
   F[5] == {
-    ClassName        -> aDM
+    ClassName        -> aDM,
     SelfConjugate    -> False,
     Mass             -> {mDM, MDM},
     Width            -> 0,
@@ -370,9 +370,9 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
     FullName         -> {"Dirac Dark matter"}
   },
   F[6] == {
-    ClassName        -> aDM
+    ClassName        -> aDM,
     SelfConjugate    -> False,
-    Mass             -> {MDM, MDM},
+    Mass             -> {mDM, MDM},
     Width            -> 0,
     QuantumNumbers   -> {QX -> -1},
     PropagatorLabel  -> {"aDM"} ,
