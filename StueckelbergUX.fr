@@ -522,7 +522,7 @@ GaugeXi[ U[4]  ] = GaugeXi[G];
 (* ************************** *)
 (*  Below copied from P35 in 1310.1921 *)
 M$MixingsDescription = {
-  Mix["l1"] == {
+  Mix["Wmix"] == {
     MassBasis  -> {W, Wbar},
     GaugeBasis -> {Wi[1], Wi[2]},
     Value      -> {{1/Sqrt[2], -I/Sqrt[2]}, {1/Sqrt[2],I/Sqrt[2]}}
@@ -532,7 +532,7 @@ M$MixingsDescription = {
     GaugeBasis   -> {C, B, Wi[3]},
     MassBasis    -> {Zp, Z, A },
     MixingMatrix -> K.O.R,
-    BlockName    -> KORMIX,
+    BlockName    -> KOR,
     Inverse      -> True}
 };
 (* ************************** *)
