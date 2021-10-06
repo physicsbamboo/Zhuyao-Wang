@@ -47,9 +47,10 @@ M$GaugeGroups = {
     GaugeBoson       -> B, 
     Charge           -> Y
   },
+  (* C is reserved, can not be used, replace C with cC*)
   U1X == {
     Abelian -> True,
-    GaugeBoson -> C,
+    GaugeBoson -> cC,
     Charge -> QX,
     CouplingConstant -> gX
   },
@@ -259,7 +260,7 @@ M$ClassesDescription = {
   },
  
   V[13] == { 
-    ClassName     -> C, 
+    ClassName     -> cC, 
     Unphysical    -> True, 
     SelfConjugate -> True
     (*Definitions   -> { C[mu_] -> Zp[mu]}*)
@@ -523,7 +524,7 @@ M$MixingsDescription = {
 },
 (*  Below referred to Page 36 in 1310.1921  *)
   Mix["KOR"] == {
-    GaugeBasis   -> {C, B, Wi[3]},
+    GaugeBasis   -> {cC, B, Wi[3]},
     MassBasis    -> {Zp, Z, A },
     MixingMatrix -> matK.matO.matR,
     BlockName    -> KOR,
