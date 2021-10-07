@@ -522,12 +522,12 @@ M$MixingsDescription = {
     GaugeBasis -> {Wi[1], Wi[2]},
     Value      -> {{1/Sqrt[2], -I/Sqrt[2]}, {1/Sqrt[2],I/Sqrt[2]}}
 },
-(*  Below referred to Page 36 in 1310.1921  *)
+(*  Below referred to Page 36 in 1310.1921, 1301.5932  *)
   Mix["KOR"] == {
     GaugeBasis   -> {cC, B, Wi[3]},
     MassBasis    -> {Zp, Z, A },
-    MixingMatrix -> matK.matO.matR,
-    BlockName    -> KOR,
+    MixingMatrix -> {matK,matO,matR},
+    (*BlockName    -> KOR,*)
     Inverse      -> True}
 };
 (* ************************** *)
