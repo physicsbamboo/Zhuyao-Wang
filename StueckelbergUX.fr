@@ -358,7 +358,7 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
   },
   (*further modifications needed*)
   F[5] == {
-    ClassName        -> aDM,
+    ClassName        -> DM,
     SelfConjugate    -> False,
     Mass             -> {mDM, 10},
     Width            -> 0,
