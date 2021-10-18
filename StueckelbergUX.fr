@@ -430,7 +430,34 @@ removes all the terms from the Lagrangian which depend on ghost fields and Golds
     QuantumNumbers -> {Y -> -1/3},
     Definitions    -> { dR[sp1_,ff_,cc_] :> Module[{sp2}, ProjP[sp1,sp2] dq[sp2,ff,cc]] }
   },
-  
+  F[16] == { 
+    ClassName      -> DMR, 
+    Unphysical     -> True, 
+    SelfConjugate  -> False,
+    QuantumNumbers -> {QX -> 1},
+    Definitions    -> { DMR -> ProjP. DM }
+  },
+  F[17] == { 
+    ClassName      -> DML, 
+    Unphysical     -> True, 
+    SelfConjugate  -> False,
+    QuantumNumbers -> {QX -> 1},
+    Definitions    -> { DML -> ProjM. DM }
+  },
+  F[18] == { 
+    ClassName      -> aDMR, 
+    Unphysical     -> True, 
+    SelfConjugate  -> False,
+    QuantumNumbers -> {QX -> -1},
+    Definitions    -> { aDML -> ProjP. DM}
+  },
+  F[19] == { 
+    ClassName      -> aDML, 
+    Unphysical     -> True, 
+    SelfConjugate  -> False,
+    QuantumNumbers -> {QX -> -1},
+    Definitions    -> { aDML -> ProjM. aDM }
+  },
 (* Higgs: physical scalars  *)
   S[1] == {
     ClassName       -> H,
@@ -864,7 +891,12 @@ LGauge := Block[{mu,nu,ii,aa},
 (*Stueckelberg Lagrangian arxiv:0702123v2*)
 (*axion field is set as 0 because we're at Unitary gauge*)
 LSt := Block[{mu,nu}, 
-  ExpandIndices[-1/4 FS[cC,mu,nu] FS[cC,mu,nu] - \[Delta]/2 FS[cC,mu,nu] FS[B,mu,nu] +gX aDM.Ga[mu].DM.cC[mu] - MDM aDM DM - 1/2*(M1^2 cC[mu].cC[mu] + M2^2 B[mu].B[mu])- 1/2*(M1*M2 cC[mu].B[mu] + HC[M1*M2 cC[mu].B[mu]])+ I aDM.Ga[mu].DC[DM,mu]]];
+  ExpandIndices[-1/4 FS[cC,mu,nu] FS[cC,mu,nu] - \[Delta]/2 FS[cC,mu,nu] FS[B,mu,nu] - 1/2*(M1^2 cC[mu].cC[mu] + M2^2 B[mu].B[mu])- 1/2*(M1*M2 cC[mu].B[mu] + HC[M1*M2 cC[mu].B[mu]])
+  +gX (aDML+aDMR).Ga[mu].(DML+DMR).cC[mu] - MDM (aDML DMR + aDMR DML) + I (aDML+aDMR).Ga[mu].(DC[DML,mu]+DC[DMR,mu])]];
+  
+  
+  
+  (*+gX aDM.Ga[mu].DM.cC[mu] - MDM aDM DM - 1/2*(M1^2 cC[mu].cC[mu] + M2^2 B[mu].B[mu])- 1/2*(M1*M2 cC[mu].B[mu] + HC[M1*M2 cC[mu].B[mu]])+ I aDM.Ga[mu].DC[DM,mu]]];*)
 
 
 LFermions := Block[{mu}, 
