@@ -263,7 +263,7 @@ M$ClassesDescription = {
     ClassName     -> cC, 
     Unphysical    -> True, 
     SelfConjugate -> True,
-    Definitions   -> { C[mu_] :> Module[{i,j}, matK[1,i].matO[i,j].matR[j,1] Zp[mu] + matK[1,i].matO[i,j].matR[j,2] Z[mu] + matK[1,i].matO[i,j].matR[j,3]  A[mu]]}
+    Definitions   -> { cC[mu_] :> Module[{i,j}, matK[1,i].matO[i,j].matR[j,1] Zp[mu] + matK[1,i].matO[i,j].matR[j,2] Z[mu] + matK[1,i].matO[i,j].matR[j,3]  A[mu]]}
    },
 
 (* Ghosts: related to unphysical gauge bosons *)
