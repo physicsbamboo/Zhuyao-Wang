@@ -243,27 +243,27 @@ M$ClassesDescription = {
   },
 
 (* Gauge bosons: unphysical vector fields *)
-(* Removed the definition for B, and C, referred from Page 75 in 1310.1921*)
+
   V[11] == { 
     ClassName     -> B, 
     Unphysical    -> True, 
-    SelfConjugate -> True
-    (*Definitions   -> { B[mu_] -> -sw Z[mu]+cw A[mu]} *)
+    SelfConjugate -> True,
+    Definitions   -> { B[mu_] :> Module[{i,j}, matK[2,i].matO[i,j].matR[j,1] Zp[mu] + matK[2,i].matO[i,j].matR[j,2] Z[mu] + matK[2,i].matO[i,j].matR[j,3]  A[mu]]} 
   },
   V[12] == { 
     ClassName     -> Wi,
     Unphysical    -> True,
     SelfConjugate -> True, 
     Indices       -> {Index[SU2W]},
-    FlavorIndex   -> SU2W
-    (* Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2])} *)
+    FlavorIndex   -> SU2W,
+    Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2]), Wi[mu_,3] :> Module[{i,j}, matK[3,i].matO[i,j].matR[j,1] Zp[mu] + matK[3,i].matO[i,j].matR[j,2] Z[mu] + matK[3,i].matO[i,j].matR[j,3]  A[mu]]}
   },
  
   V[13] == { 
     ClassName     -> cC, 
     Unphysical    -> True, 
-    SelfConjugate -> True
-    (*Definitions   -> { C[mu_] -> Zp[mu]}*)
+    SelfConjugate -> True,
+    Definitions   -> { C[mu_] :> Module[{i,j}, matK[1,i].matO[i,j].matR[j,1] Zp[mu] + matK[1,i].matO[i,j].matR[j,2] Z[mu] + matK[1,i].matO[i,j].matR[j,3]  A[mu]]}
    },
 
 (* Ghosts: related to unphysical gauge bosons *)
@@ -539,24 +539,7 @@ GaugeXi[ U[2]  ] = GaugeXi[Z];
 GaugeXi[ U[31] ] = GaugeXi[W];
 GaugeXi[ U[32] ] = GaugeXi[W];
 GaugeXi[ U[4]  ] = GaugeXi[G];
-(* ************************** *)
-(* *****     Mixing     ***** *)
-(* ************************** *)
-(*  Below copied from P35 in 1310.1921 *)
-M$MixingsDescription = {
-  Mix["Wmix"] == {
-    MassBasis  -> {W, Wbar},
-    GaugeBasis -> {Wi[1], Wi[2]},
-    Value      -> {{1/Sqrt[2], -I/Sqrt[2]}, {1/Sqrt[2],I/Sqrt[2]}}
-},
-(*  Below referred to Page 36 in 1310.1921, 1301.5932  *)
-  Mix["KOR"] == {
-    GaugeBasis   -> {cC, B, Wi[3]},
-    MassBasis    -> {Zp, Z, A },
-    MixingMatrix -> {matK,matO,matR},
-    (*BlockName    -> KOR,*)
-    Inverse      -> True}
-};
+
 (* ************************** *)
 (* *****   Parameters   ***** *)
 (* ************************** *)
