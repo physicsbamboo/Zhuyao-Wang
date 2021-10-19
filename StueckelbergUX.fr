@@ -672,13 +672,13 @@ M$Parameters = {
     Value -> 0.01,
     Description -> "dark sector coupling parameter"
   },
-  MDM  == {
+  (*MDM  == {
     ParameterType -> External,
     BlockName -> HIDDEN,
     ParameterName -> MDM,
     Value -> 0,
     Description -> "Dark matter mass"
-  },
+  },*)
   (* Internal Parameters *)
   (* Stueckelberg parameters*)
   eps == {
@@ -875,7 +875,7 @@ LGauge := Block[{mu,nu,ii,aa},
 (*axion field is set as 0 because we're at Unitary gauge*)
 LSt := Block[{mu,nu}, 
   ExpandIndices[-1/4 FS[cC,mu,nu] FS[cC,mu,nu] - \[Delta]/2 FS[cC,mu,nu] FS[B,mu,nu] - 1/2*(M1^2 cC[mu].cC[mu] + M2^2 B[mu].B[mu])- 1/2*(M1*M2 cC[mu].B[mu] + HC[M1*M2 cC[mu].B[mu]])
-  +gX (aDML+aDMR).Ga[mu].(DML+DMR).cC[mu] - MDM (aDML DMR + aDMR DML) + I (aDML+aDMR).Ga[mu].(DC[DML,mu]+DC[DMR,mu])]];
+  +gX (aDML+aDMR).Ga[mu].(DML+DMR).cC[mu] - mDM (aDML DMR + aDMR DML) + I (aDML+aDMR).Ga[mu].(DC[DML,mu]+DC[DMR,mu])]];
   
   
   
