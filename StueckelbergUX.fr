@@ -655,7 +655,7 @@ M$Parameters = {
   M0 == {
     ParameterType    -> Internal,
     Value            -> 1/2 vev Sqrt[gw^2+g1^2],
-    TeX              -> anphi,
+    TeX              -> M0,
     Description      -> "M0=MZ(eps=delta)"
   },
   (*angle theta is not defined since it's already in SM, use sw,cw directly*)
