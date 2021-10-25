@@ -667,7 +667,7 @@ M$Parameters = {
   },
   anpsi == {
     ParameterType    -> Internal,
-    Value            -> 1/2*ArcTan[(2 sw M0 epsb)/(M1^2-M0^2+(M1^2+M0^2-MW^2) epsb^2)],
+    Value            -> 1/2*ArcTan[(2 sw M0^2 epsb)/(M1^2-M0^2+(M1^2+M0^2-MW^2) epsb^2)],
     TeX              -> \[Psi],
     Description      -> "angle psi"
   },
