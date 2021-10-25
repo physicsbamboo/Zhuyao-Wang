@@ -835,8 +835,8 @@ LGauge := Block[{mu,nu,ii,aa},
 (*Stueckelberg Lagrangian arxiv:0702123v2*)
 (*axion field is set as 0 because we're at Unitary gauge*)
 LSt := Block[{mu,nu}, 
-  ExpandIndices[-1/4 FS[cC,mu,nu] FS[cC,mu,nu] - \[Delta]/2 FS[cC,mu,nu] FS[B,mu,nu] +gX DMbar.Ga[mu].DM.cC[mu] - mDM DMbar DM - 1/2*(M1^2 cC[mu].cC[mu] + M2^2 B[mu].B[mu])- 1/2*(M1*M2 cC[mu].B[mu] + HC[M1*M2 cC[mu].B[mu]])+ I DMbar.Ga[mu].DC[DM,mu]]];
-
+  ExpandIndices[-1/4 FS[cC,mu,nu] FS[cC,mu,nu] - \[Delta]/2 FS[cC,mu,nu] FS[B,mu,nu]  - mDM DMbar DM - 1/2*(M1^2 cC[mu].cC[mu] + M2^2 B[mu].B[mu])- 1/2*(M1*M2 cC[mu].B[mu] + HC[M1*M2 cC[mu].B[mu]])+ I DMbar.Ga[mu].DC[DM,mu]]];
+(*+gX DMbar.Ga[mu].DM.cC[mu]*)
 
 LFermions := Block[{mu}, 
   ExpandIndices[I*(
