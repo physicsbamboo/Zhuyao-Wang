@@ -660,7 +660,7 @@ M$Parameters = {
   },
   MZp == {
      ParameterType    -> Internal,
-     Value            -> 1/2 (Sqrt[(M1^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)+(g1^2 (1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2) + gw^2) vev^2/4)^2 - 4 M1^2 (g1^2+gw^2)/4 vev^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)]+M1^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)+(g1^2 (1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2) + gw^2) vev^2/4),
+     Value            -> Sqrt[ 1/2 (Sqrt[(M1^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)+(g1^2 (1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2) + gw^2) vev^2/4)^2 - 4 M1^2 (g1^2+gw^2)/4 vev^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)]- M1^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)-(g1^2 (1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2) + gw^2) vev^2/4)],
      TeX              -> MZp,
      Description      -> "mass of MZp"
   },
