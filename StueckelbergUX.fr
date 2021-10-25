@@ -617,12 +617,12 @@ M$Parameters = {
     Value -> 0.01,
     Description -> "parameter"
   },
-  M2  == {
+  eps  == {
     ParameterType -> External,
     BlockName -> HIDDEN,
-    ParameterName -> M2,
+    ParameterName -> eps,
     Value -> 0,
-    Description -> "parameter"
+    Description -> "mass mixing parameter"
   },
   gX  == {
     ParameterType -> External,
@@ -640,11 +640,11 @@ M$Parameters = {
   },*)
   (* Internal Parameters *)
   (* Stueckelberg parameters*)
-  eps == {
+  M2 == {
     ParameterType    -> Internal,
-    Value            -> M2/M1,
-    TeX              -> \[Epsilon],
-    Description      -> "mass mixing parameter"
+    Value            -> M1 eps,
+    TeX              -> M2,
+    Description      -> "M2"
   },
   epsb == {
     ParameterType    -> Internal,
