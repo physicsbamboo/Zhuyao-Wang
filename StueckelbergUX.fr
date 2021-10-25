@@ -678,6 +678,7 @@ M$Parameters = {
     Value            -> {matK[1,1] -> 1/Sqrt[1-\[Delta]^2], matK[1,2] -> 0, matK[1,3] -> 0,
     			 matK[2,1] -> -\[Delta]/Sqrt[1-\[Delta]^2], matK[2,2] -> 1, matK[2,3] -> 0,
 			 matK[3,1] -> 0, matK[3,2] -> 0, matK[3,3] -> 1},
+    Orthogonal       -> True,
     Description      -> "K matrix"
     },
   matO   =={
@@ -686,6 +687,7 @@ M$Parameters = {
     Value            -> {matO[1,1] -> Sqrt[1-\[Delta]^2], matO[1,2] -> -\[Delta], matO[1,3] -> 0,
     			 matO[2,1] -> \[Delta], matO[2,2] -> Sqrt[1-\[Delta]^2], matO[2,3] -> 0,
 			 matO[3,1] -> 0, matO[3,2] -> 0, matO[3,3] -> 1},
+    Orthogonal       -> True,
     Description      -> "O matrix"
     },
   matR   =={
