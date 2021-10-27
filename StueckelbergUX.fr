@@ -200,7 +200,7 @@ M$ClassesDescription = {
     SelfConjugate   -> False,
     Ghost           -> Zp,
     QuantumNumbers  -> {GhostNumber -> 1},
-    Mass            -> {MZp,M1},  
+    Mass            -> {MZp, MZp},  
     Width	    -> {WZp, 2.4952},
     PropagatorLabel -> "uZp",
     PropagatorType  -> GhostDash,
