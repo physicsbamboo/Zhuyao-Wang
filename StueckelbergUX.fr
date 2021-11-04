@@ -617,12 +617,12 @@ M$Parameters = {
     Value -> 0.01,
     Description -> "parameter"
   },
-  eps  == {
+  M2  == {
     ParameterType -> External,
     BlockName -> HIDDEN,
-    ParameterName -> eps,
+    ParameterName -> M2,
     Value -> 0,
-    Description -> "mass mixing parameter"
+    Description -> " parameter"
   },
   gX  == {
     ParameterType -> External,
@@ -638,79 +638,7 @@ M$Parameters = {
     Value -> 0,
     Description -> "Dark matter mass"
   },*)
-  (* Internal Parameters *)
-  (* Stueckelberg parameters*)
-  M2 == {
-    ParameterType    -> Internal,
-    Value            -> M1 eps,
-    TeX              -> M2,
-    Description      -> "M2"
-  },
-  epsb == {
-    ParameterType    -> Internal,
-    Value            -> (eps-\[Delta])/Sqrt[1-\[Delta]^2],
-    TeX              -> OverBar[\[Epsilon]],
-    Description      -> "mass mixing parameter after transformation 0702123 Equation(22)"
-  },
-  M0 == {
-    ParameterType    -> Internal,
-    Value            -> 1/2 vev Sqrt[gw^2+g1^2],
-    TeX              -> M0,
-    Description      -> "M0=MZ(eps=delta)"
-  },
-  MZp == {
-     ParameterType    -> Internal,
-     Value            -> Sqrt[ 1/2 (Sqrt[(M1^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)+(g1^2 (1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2) + gw^2) vev^2/4)^2 - 4 M1^2 (g1^2+gw^2)/4 vev^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)]- M1^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)-(g1^2 (1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2) + gw^2) vev^2/4)],
-     TeX              -> MZp,
-     Description      -> "mass of MZp"
-  },
-  (*angle theta is not defined since it's already in SM, use sw,cw directly*)
-  anphi == {
-    ParameterType    -> Internal,
-    Value            -> ArcTan[epsb],
-    TeX              -> anphi,
-    Description      -> "angle phi"
-  },
-  anpsi == {
-    ParameterType    -> Internal,
-    Value            -> 1/2*ArcTan[(2 sw M0^2 epsb)/(M1^2-M0^2+(M1^2+M0^2-MW^2) epsb^2)],
-    TeX              -> \[Psi],
-    Description      -> "angle psi"
-  },
-  (* The indices might be wrong*)
-  matK   =={
-    ParameterType    -> Internal,
-    Indices          -> {Index[Generation],Index[Generation]},
-    Value            -> {matK[1,1] -> 1/Sqrt[1-\[Delta]^2], matK[1,2] -> 0, matK[1,3] -> 0,
-    			 matK[2,1] -> -\[Delta]/Sqrt[1-\[Delta]^2], matK[2,2] -> 1, matK[2,3] -> 0,
-			 matK[3,1] -> 0, matK[3,2] -> 0, matK[3,3] -> 1},
-    Orthogonal       -> True,
-    Description      -> "K matrix"
-    },
-  matO   =={
-    ParameterType    -> Internal,
-    Indices          -> {Index[Generation],Index[Generation]},
-    Value            -> {matO[1,1] -> Sqrt[1-\[Delta]^2], matO[1,2] -> -\[Delta], matO[1,3] -> 0,
-    			 matO[2,1] -> \[Delta], matO[2,2] -> Sqrt[1-\[Delta]^2], matO[2,3] -> 0,
-			 matO[3,1] -> 0, matO[3,2] -> 0, matO[3,3] -> 1},
-    Orthogonal       -> True,
-    Description      -> "O matrix"
-    },
-  matR   =={
-    ParameterType    -> Internal,
-    Indices          -> {Index[Generation],Index[Generation]},
-    Value            -> {matR[1,1] -> Cos[anpsi]Cos[anphi]-sw Sin[anphi]Sin[anpsi],
-      			 matR[1,2] -> Sin[anpsi]Cos[anphi]+sw Sin[anphi]Cos[anpsi], 
-			 matR[1,3] -> -cw Sin[anphi],
-    			 matR[2,1] -> Cos[anpsi]Sin[anphi]+sw Cos[anphi]Sin[anpsi], 
-			 matR[2,2] -> Sin[anpsi]Sin[anphi]-sw Cos[anphi]Cos[anpsi],
-			 matR[2,3] -> cw Cos[anphi],
-			 matR[3,1] -> -cw Sin[anpsi], 
-			 matR[3,2] -> cw Cos[anpsi], 
-			 matR[3,3] -> sw},
-    Description      -> "R matrix"
-    },
-    
+  (* Internal Parameters *)    
   aEW == {
     ParameterType    -> Internal,
     Value            -> 1/aEWM1,
@@ -828,7 +756,83 @@ M$Parameters = {
                       CKM[2,1] -> -Sin[cabi], CKM[2,2] -> Cos[cabi], CKM[2,3] -> 0,
                       CKM[3,1] -> 0,          CKM[3,2] -> 0,         CKM[3,3] -> 1},
     TeX         -> Superscript[V,CKM],
-    Description -> "CKM-Matrix"}
+    Description -> "CKM-Matrix"},
+      (* Stueckelberg parameters*)
+  eps == {
+    ParameterType    -> Internal,
+    Value            -> M2/M1,
+    TeX              -> eps,
+    Description      -> "mass mixing parameter"
+  },
+  epsb == {
+    ParameterType    -> Internal,
+    Value            -> (eps-\[Delta])/Sqrt[1-\[Delta]^2],
+    TeX              -> OverBar[\[Epsilon]],
+    Description      -> "mass mixing parameter after transformation 0702123 Equation(22)"
+  },
+  M0 == {
+    ParameterType    -> Internal,
+    Value            -> 1/2 vev Sqrt[gw^2+g1^2],
+    TeX              -> M0,
+    Description      -> "M0=MZ(eps=delta)"
+  },
+  MZp == {
+    ParameterType    -> Internal,
+    Value            -> Sqrt[ 1/2 (Sqrt[(M1^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)+(g1^2 (1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2) + gw^2) vev^2/4)^2 - 4 M1^2 (g1^2+gw^2)/4 vev^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)]- M1^2(1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2)-(g1^2 (1-2 eps \[Delta] + eps^2)/(1-\[Delta]^2) + gw^2) vev^2/4)],
+    TeX              -> MZp,
+    Description      -> "mass of MZp"
+  },
+  anthe == {
+    ParameterType    -> Internal,
+    Value            -> ArcTan[(g1/Sqrt[1+eps^2-2*eps*delta])/gw],
+    TeX              -> anthe,
+    Description      -> "angle theta"
+  },
+  anphi == {
+    ParameterType    -> Internal,
+    Value            -> ArcTan[epsb],
+    TeX              -> anphi,
+    Description      -> "angle phi"
+  },
+  anpsi == {
+    ParameterType    -> Internal,
+    Value            -> 1/2*ArcTan[(2 sw M0^2 epsb)/(M1^2-M0^2+(M1^2+M0^2-MW^2) epsb^2)],
+    TeX              -> \[Psi],
+    Description      -> "angle psi"
+  },
+  (* The indices might be wrong*)
+  matK   =={
+    ParameterType    -> Internal,
+    Indices          -> {Index[Generation],Index[Generation]},
+    Value            -> {matK[1,1] -> 1/Sqrt[1-\[Delta]^2], matK[1,2] -> 0, matK[1,3] -> 0,
+    			 matK[2,1] -> -\[Delta]/Sqrt[1-\[Delta]^2], matK[2,2] -> 1, matK[2,3] -> 0,
+			 matK[3,1] -> 0, matK[3,2] -> 0, matK[3,3] -> 1},
+    Orthogonal       -> True,
+    Description      -> "K matrix"
+    },
+  matO   =={
+    ParameterType    -> Internal,
+    Indices          -> {Index[Generation],Index[Generation]},
+    Value            -> {matO[1,1] -> Sqrt[1-\[Delta]^2], matO[1,2] -> -\[Delta], matO[1,3] -> 0,
+    			 matO[2,1] -> \[Delta], matO[2,2] -> Sqrt[1-\[Delta]^2], matO[2,3] -> 0,
+			 matO[3,1] -> 0, matO[3,2] -> 0, matO[3,3] -> 1},
+    Orthogonal       -> True,
+    Description      -> "O matrix"
+    },
+  matR   =={
+    ParameterType    -> Internal,
+    Indices          -> {Index[Generation],Index[Generation]},
+    Value            -> {matR[1,1] -> Cos[anpsi]Cos[anphi]-Sin[anthe]Sin[anphi]Sin[anpsi],
+      			 matR[1,2] -> Sin[anpsi]Cos[anphi]+Sin[anthe]Sin[anphi]Cos[anpsi], 
+			 matR[1,3] -> -Cos[anthe]Sin[anphi],
+    			 matR[2,1] -> Cos[anpsi]Sin[anphi]+Sin[anthe]Cos[anphi]Sin[anpsi], 
+			 matR[2,2] -> Sin[anpsi]Sin[anphi]-Sin[anthe]Cos[anphi]Cos[anpsi],
+			 matR[2,3] -> Cos[anthe]Cos[anphi],
+			 matR[3,1] -> -Cos[anthe]Sin[anpsi], 
+			 matR[3,2] -> Cos[anthe] Cos[anpsi], 
+			 matR[3,3] -> Sin[anthe]},
+    Description      -> "R matrix"
+    }
 };
 
 (* ************************** *)
