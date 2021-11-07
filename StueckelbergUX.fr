@@ -782,9 +782,15 @@ M$Parameters = {
     TeX              -> MZp,
     Description      -> "mass of MZp"
   },
+  g1mo == {
+    ParameterType    -> Internal,
+    Value            -> g1/Sqrt[1+eps^2-2*eps*delta],
+    TeX              -> g1mo,
+    Description      -> "modified g1"
+  },
   anthe == {
     ParameterType    -> Internal,
-    Value            -> ArcTan[(g1/Sqrt[1+eps^2-2*eps*delta])/gw],
+    Value            -> ArcTan[(g1mo)/gw],
     TeX              -> anthe,
     Description      -> "angle theta"
   },
@@ -796,7 +802,7 @@ M$Parameters = {
   },
   anpsi == {
     ParameterType    -> Internal,
-    Value            -> 1/2*ArcTan[(2 sw M0^2 epsb)/(M1^2-M0^2+(M1^2+M0^2-MW^2) epsb^2)],
+    Value            -> 1/2*ArcTan[(2 Sin[anthe] M0^2 epsb)/(M1^2-M0^2+(M1^2+M0^2-MW^2) epsb^2)],
     TeX              -> \[Psi],
     Description      -> "angle psi"
   },
