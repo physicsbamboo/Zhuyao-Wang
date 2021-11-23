@@ -248,7 +248,7 @@ M$ClassesDescription = {
     ClassName     -> B, 
     Unphysical    -> True, 
     SelfConjugate -> True,
-    Definitions   -> { B[mu_] :> Module[{i,j}, matK[2,i] matO[i,j] matR[j,1] Zp[mu] + matK[2,i] matO[i,j] matR[j,2] Z[mu] + matK[2,i] matO[i,j] matR[j,3]  A[mu]]} 
+    Definitions   -> { B[mu_] -> -sw Z[mu]+cw A[mu]} 
   },
   V[12] == { 
     ClassName     -> Wi,
@@ -256,14 +256,14 @@ M$ClassesDescription = {
     SelfConjugate -> True, 
     Indices       -> {Index[SU2W]},
     FlavorIndex   -> SU2W,
-    Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2]), Wi[mu_,3] :> Module[{i,j}, matK[3,i] matO[i,j] matR[j,1] Zp[mu] + matK[3,i] matO[i,j] matR[j,2] Z[mu] + matK[3,i] matO[i,j] matR[j,3]  A[mu]]}
+    Definitions   -> { Wi[mu_,1] -> (Wbar[mu]+W[mu])/Sqrt[2], Wi[mu_,2] -> (Wbar[mu]-W[mu])/(I*Sqrt[2]), Wi[mu_,3] -> cw Z[mu] + sw A[mu]}
   },
  
   V[13] == { 
     ClassName     -> cC, 
     Unphysical    -> True, 
     SelfConjugate -> True,
-    Definitions   -> { cC[mu_] :> Module[{i,j}, matK[1,i] matO[i,j] matR[j,1] Zp[mu] + matK[1,i] matO[i,j] matR[j,2] Z[mu] + matK[1,i] matO[i,j] matR[j,3]  A[mu]]}
+    Definitions   -> { cC[mu_] ->  Zp[mu] }
    },
 
 (* Ghosts: related to unphysical gauge bosons *)
